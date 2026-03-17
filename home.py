@@ -1,0 +1,25 @@
+#добавление комментария (тест 1)
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome(executable_path='C:/chromedriver.exe')
+driver.maximize_window()
+
+driver.get("https://practice.automationtesting.in/")
+driver.implicitly_wait(5)
+driver.execute_script("window.scrollBy(0, 600);")
+sel_ruby_btn = driver.find_element_by_css_selector("a.woocommerce-LoopProduct-link > :nth-child(2)")
+sel_ruby_btn.click()
+reviews_tab = driver.find_element_by_css_selector("ul.wc-tabs > li:nth-child(2) > a")
+reviews_tab.click()
+stars_btn = driver.find_element_by_css_selector("p.stars > span > a:nth-child(5)")
+stars_btn.click()
+review_field = driver.find_element_by_id("comment")
+review_field.send_keys("Nice book!")
+name = driver.find_element_by_id("author")
+name.send_keys("Ksenia")
+email = driver.find_element_by_id("email")
+email.send_keys("magicaksu.f3@gmail.com")
+submit_btn = driver.find_element_by_id("submit")
+submit_btn.click()
+driver.quit()

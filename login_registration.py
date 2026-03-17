@@ -1,0 +1,38 @@
+#регистрация аккаунта (тест 2)
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome(executable_path='C:/chromedriver.exe')
+driver.maximize_window()
+
+driver.get("https://practice.automationtesting.in/")
+driver.implicitly_wait(10)
+my_acc_tab = driver.find_element_by_css_selector("ul.main-nav > li:nth-child(2) > a")
+my_acc_tab.click()
+time.sleep(5)
+email_field = driver.find_element_by_id("reg_email")
+email_field.send_keys("xeniahrush1505@yandex.ru")
+password_field = driver.find_element_by_id("reg_password")
+password_field.send_keys("VaKhrushksks15")
+time.sleep(5)
+reg_btn = driver.find_element_by_name("register")
+reg_btn.click()
+driver.quit()
+
+#логин в систему (тест 3)
+driver = webdriver.Chrome(executable_path='C:/chromedriver.exe')
+driver.maximize_window()
+
+driver.get("https://practice.automationtesting.in/")
+driver.implicitly_wait(5)
+my_acc_tab = driver.find_element_by_css_selector("ul.main-nav > li:nth-child(2) > a")
+my_acc_tab.click()
+time.sleep(5)
+username_field = driver.find_element_by_id("username")
+username_field.send_keys("xeniahrush1505@yandex.ru")
+password_field = driver.find_element_by_id("password")
+password_field.send_keys("VaKhrushksks15")
+time.sleep(5)
+login_btn = driver.find_element_by_name("login")
+login_btn.click()
+driver.quit()
